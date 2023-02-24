@@ -1,0 +1,31 @@
+task :ugali_and_nyama => [:boil_water, :fry_meat, :serve_meal, :go_to_shop] do
+    puts "making ugali and nyama"
+end
+
+task :boil_water => [:go_to_shop] do
+    puts "boil water"
+end
+
+task :fry_meat => "ugali:boil_water" do
+    puts "frying meat"
+end
+
+task :serve_meal do
+    puts "serving meal"
+end
+
+desc "Going to shop"
+task :go_to_shop do
+    puts "buying meat from the shop"
+end
+
+namespace 'ugali' do
+    task :boil_water do
+        puts "Boiling water for our ugali"
+    end
+end
+
+
+task :show_current_directory do
+    puts "PWD = #{`pwd`}"
+end
